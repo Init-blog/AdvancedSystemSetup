@@ -1,0 +1,50 @@
+# These pacakges provide the necessary information for Homebrew 
+# to install and manage various software packages and applications.
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+
+# Homebrew can manage 3 kind of apps
+# 'brew' will be used for CLI software
+# 'mas' will be used for Mac App Store software
+# 'cask' will be used for all the apps not available on the app store
+
+brew "util-linux"   # Installs the util-linux package, providing various system utilities for Linux systems.
+brew "mas"          # "mas" stands for MacAppStore. This package enables Homebrew to install applications from the Mac App Store.
+
+# Once "mas" is installed we can use that command to install apps from the app store
+mas "The Unarchiver", id: 425424353 # File compression
+mas "QR Capture", id: 1369524274    # Scan QR codes displayed on your screen
+mas "CopyClip", id: 1443858830      # Keep a clipboard history
+mas "Magnet", id: 441258766         # Organize windows with snaps
+
+# Other apps I need but are not development related
+# mas 'Affinity Photo 2', id: 1616822987        # Photoshop alternative
+# mas "GIPHY CAPTURE", id: 668208984            # Convert any screen recording into a GIF
+# mas "Numbers", id: 409203825                  # Mac alternative for Excel
+# mas "Keynote", id: 409183694                  # Mac alternative for Powerpoint
+# mas "Pages", id: 409201541                    # Mac alternative for Word
+
+# The "app name string" is used for identification, while 
+# the id ensures the correct app is installed from the Mac App Store via Homebrew.
+# You can find the app id by looking for your app on the AppStore, sharing as a link
+# and in the link you'll find a number, that is the app id
+# Example: https://apps.apple.com/mx/app/keynote/id409183694
+
+
+# Most of the cool apps are not available from the AppStore
+# For those we use the cask command
+cask "visual-studio-code"   # General code editor
+cask "microsoft-edge"       # Alternative browser for local testing
+cask "google-chrome"        # Alternative browser for local testing
+cask "github"               # Github GUI for repository management 
+cask "docker"               # Contenerize your apps and dependencies
+cask "figma"                # Mockups designer
+cask "miro"                 # Infinite board project planner
+
+# Other apps I use but are not development related
+# cask "whatsapp"           # Popular instant messaging app
+# cask "zoom"               # Post COVID standard meetings software
+
+# Search for any app you want on https://brew.sh/ to get the cask id
+
