@@ -5,7 +5,7 @@ export GIT_USERNAME=$1
 export REPO_NAME=$2
 
 # Prompt for sudo password, as it will be required for the installation
-echo 'Password required for installation:'
+echo "Password required for installation:"
 if ! sudo -v; then    
     echo "Failed to obtain sudo privileges. Exiting."    
     exit 1
@@ -16,13 +16,15 @@ mkdir -p "$HOME/SystemSetupTmp"
 cd "$HOME/SystemSetupTmp" || exit
 
 # Download and unzip repository, exit script if download failed
+echo "Downloading and unzipping repository..."
+echo "https://github.com/$GIT_USERNAME/$REPO_NAME/archive/refs/heads/main.zip"
 curl -L -o master.zip https://github.com/$GIT_USERNAME/$REPO_NAME/archive/refs/heads/main.zip
 unzip -o master.zip > /dev/null 2>&1
 cd $REPO_NAME-main || exit
 
 # Execute the install.sh file, which calls the brewfile and allows your mac to open 
 # the programs without whining that it was downloaded from the internetz
-# sh brew/install.sh
+sh brew/install.sh
 
 # After everything is installed, tweak some system settings,
 # and install some fonts
